@@ -6,6 +6,7 @@ import 'package:store_app/screen/login/components/login_footer.dart';
 import 'package:store_app/screen/login/components/login_header.dart';
 import 'package:store_app/screen/login/components/login_with.dart';
 import 'package:store_app/screen/login/components/login_with_google.dart';
+import 'package:store_app/screen/login/singup_screen.dart';
 import 'package:store_app/theme/color_app.dart';
 
 class LoginSreen extends StatelessWidget {
@@ -42,8 +43,10 @@ class LoginSreen extends StatelessWidget {
                   label: "First time here?",
                   labelLink: "SingUp",
                   onTap: () {
-                    // TODO llama la pantalla de SingUp
-                    log("SingUp");
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => SingupScreen()));
                   },
                 ),
               ),

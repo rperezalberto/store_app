@@ -4,6 +4,11 @@ import 'package:store_app/theme/color_app.dart';
 class AppTheme {
   static ThemeData themeApp = ThemeData(
       scaffoldBackgroundColor: AppColor.color0f1414,
+      appBarTheme: AppBarTheme(
+        iconTheme: IconThemeData(
+          color: AppColor.colorffffff,
+        ),
+      ),
       inputDecorationTheme: InputDecorationTheme(
         border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(20),
