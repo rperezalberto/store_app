@@ -43,10 +43,12 @@ class LoginSreen extends StatelessWidget {
                   label: "First time here?",
                   labelLink: "SingUp",
                   onTap: () {
-                    Navigator.push(
+                    Navigator.pushAndRemoveUntil(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => SingupScreen()));
+                          builder: (context) => SingupScreen(),
+                        ),
+                        (_) => false);
                   },
                 ),
               ),
