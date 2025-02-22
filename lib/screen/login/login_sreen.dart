@@ -15,44 +15,50 @@ class LoginSreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20),
-        child: Center(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              LoginHeader(
-                label: "Welcome back.",
-                subLabel:
-                    "Log in to your account using email \n or saocial networks.",
-              ),
-              // Input del login
-              LoginTextField(),
-              CustomButtonComponent(
-                label: "Login",
-                labelColor: AppColor.colorffffff,
-                onTap: () {
-                  // TODO Login
-                  log("Login");
-                },
-              ),
-              LoginWith(),
-              LoginWithGoogle(),
-              Expanded(
-                child: LoginFooter(
-                  label: "First time here?",
-                  labelLink: "SingUp",
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20),
+          child: Center(
+            child: Column(
+              // mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                LoginHeader(
+                  label: "Welcome back.",
+                  subLabel:
+                      "Log in to your account using email \n or saocial networks.",
+                ),
+                // Input del login
+                LoginTextField(),
+                CustomButtonComponent(
+                  label: "Login",
+                  labelColor: AppColor.colorffffff,
                   onTap: () {
-                    Navigator.pushAndRemoveUntil(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => SingupScreen(),
-                        ),
-                        (_) => false);
+                    // TODO Login
+                    log("Login");
                   },
                 ),
-              ),
-            ],
+                LoginWith(),
+                LoginWithGoogle(),
+                Expanded(
+                  child: Align(
+                    alignment: Alignment.bottomCenter,
+                    child: LoginFooter(
+                      label: "First time here?",
+                      labelLink: "SingUp",
+                      onTap: () {
+                        Navigator.pushAndRemoveUntil(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => SingupScreen(),
+                            ),
+                            (_) => false);
+                      },
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
@@ -71,22 +77,26 @@ class LoginTextField extends StatelessWidget {
         children: [
           TextField(
             style: TextStyle(
-                color: AppColor.colorffffff, fontWeight: FontWeight.w500),
+                fontSize: 14,
+                color: AppColor.color202020,
+                fontWeight: FontWeight.w500),
             decoration: InputDecoration(
               hintText: "Email",
-              prefixIcon: Icon(Icons.email, color: AppColor.colorffffff),
+              prefixIcon: Icon(Icons.email, color: AppColor.color004CFF),
             ),
           ),
           const SizedBox(height: 15),
           TextField(
             obscureText: true,
             style: TextStyle(
-                color: AppColor.colorffffff, fontWeight: FontWeight.w500),
+                fontSize: 14,
+                color: AppColor.color202020,
+                fontWeight: FontWeight.w500),
             decoration: InputDecoration(
               hintText: "Password",
-              prefixIcon: Icon(Icons.lock, color: AppColor.colorffffff),
+              prefixIcon: Icon(Icons.lock, color: AppColor.color004CFF),
               suffixIcon: Icon(Icons.remove_red_eye_rounded,
-                  color: AppColor.colorffffff),
+                  color: AppColor.color004CFF),
             ),
           ),
           Align(
@@ -95,7 +105,10 @@ class LoginTextField extends StatelessWidget {
               padding: const EdgeInsets.only(top: 10),
               child: Text(
                 "Forgot Password",
-                style: TextStyle(color: AppColor.color004CFF),
+                style: TextStyle(
+                  fontSize: 12,
+                  color: AppColor.color004CFF,
+                ),
               ),
             ),
           ),

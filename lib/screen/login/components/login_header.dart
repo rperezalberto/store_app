@@ -8,23 +8,39 @@ class LoginHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return Column(
       children: [
         Padding(
           padding: const EdgeInsets.only(top: 20),
-          child: Image.asset(
-            "assets/images/logo.png",
-            width: 150,
-            height: 240,
-            fit: BoxFit.contain,
+          child: Container(
+            width: 134,
+            height: 134,
+            decoration: BoxDecoration(
+              color: Colors.white,
+              shape: BoxShape.circle,
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.1),
+                  blurRadius: 10,
+                  spreadRadius: 2,
+                  offset: Offset(0, 5),
+                ),
+              ],
+            ),
+            child: Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: Image.asset(
+                "assets/images/logo.png",
+                fit: BoxFit.contain,
+              ),
+            ),
           ),
         ),
         Text(
           label,
-          style: TextStyle(
-            color: AppColor.colorffffff,
-            fontSize: 30,
-            fontWeight: FontWeight.bold,
+          style: theme.textTheme.bodyLarge!.copyWith(
+            color: AppColor.color004CFF,
           ),
         ),
         const SizedBox(height: 10),

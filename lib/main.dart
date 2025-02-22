@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:store_app/bloc/add/add_bloc.dart';
 import 'package:store_app/bloc/home/home_bloc.dart';
 import 'package:store_app/bloc/main_app/main_app_bloc.dart';
-import 'package:store_app/screen/login/login_sreen.dart';
-import 'package:store_app/screen/main/main_app_home.dart';
+import 'package:store_app/screen/add/add_screen.dart';
 import 'package:store_app/theme/app_theme.dart';
 
 void main() => runApp(
@@ -11,6 +11,7 @@ void main() => runApp(
         providers: [
           BlocProvider(create: (_) => MainAppBloc()),
           BlocProvider(create: (_) => HomeBloc()),
+          BlocProvider(create: (_) => AddBloc()),
         ],
         child: const MyApp(),
       ),
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Material App',
       theme: AppTheme.themeApp,
-      home: MainAppHome(),
+      home: AddScreen(),
     );
   }
 }

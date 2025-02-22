@@ -34,7 +34,8 @@ class CustomButtonComponent extends StatelessWidget {
               icon != null ? Icon(icon) : const SizedBox(),
               Text(
                 label,
-                style: TextStyle(color: labelColor),
+                style:
+                    TextStyle(color: labelColor, fontWeight: FontWeight.bold),
               ),
             ],
           ),

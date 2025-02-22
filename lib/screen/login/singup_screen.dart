@@ -62,9 +62,9 @@ class LoginUpTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final TextStyle textStyle =
-        TextStyle(color: AppColor.colorffffff, fontWeight: FontWeight.w500);
-    final Color iconColor = AppColor.colorffffff;
+    final TextStyle textStyle = TextStyle(
+        fontSize: 14, color: AppColor.color202020, fontWeight: FontWeight.w500);
+    final Color iconColor = AppColor.color004CFF;
     final double sizedHeight = 15.0;
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 20),
@@ -111,7 +111,7 @@ class LoginUpTextField extends StatelessWidget {
               padding: const EdgeInsets.only(top: 10),
               child: Text(
                 "Forgot Password",
-                style: TextStyle(color: AppColor.color004CFF),
+                style: TextStyle(fontSize: 12, color: AppColor.color004CFF),
               ),
             ),
           ),

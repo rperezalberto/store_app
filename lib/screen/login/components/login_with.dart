@@ -17,7 +17,10 @@ class LoginWith extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 8.0),
                 child: Text(
                   "Or login with",
-                  style: TextStyle(color: AppColor.colorffffff),
+                  style: TextStyle(
+                    fontSize: 12,
+                    color: AppColor.colorC7C7C7,
+                  ),
                 ),
               ),
               Expanded(child: Divider()),

@@ -20,14 +20,20 @@ class LoginFooter extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 5),
           child: Text(
             label,
-            style: TextStyle(color: AppColor.colorffffff),
+            style: TextStyle(
+              fontSize: 12,
+              color: AppColor.color202020,
+            ),
           ),
         ),
         GestureDetector(
           onTap: onTap,
           child: Text(
             labelLink,
-            style: TextStyle(color: AppColor.color004CFF),
+            style: TextStyle(
+              fontSize: 12,
+              color: AppColor.color004CFF,
+            ),
           ),
         ),
       ],
