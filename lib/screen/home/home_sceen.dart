@@ -12,7 +12,6 @@ class HomeSceen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -336,17 +335,15 @@ class CustomItem extends StatelessWidget {
         physics: NeverScrollableScrollPhysics(),
         itemCount: 4,
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2, // Dos celdas por fila
-          crossAxisSpacing: 10, // Espaciado entre celdas
-          mainAxisSpacing: 10, // Espaciado vertical
-          childAspectRatio:
-              0.75, // Relación de aspecto, para obtener un tamaño más controlado
+          crossAxisCount: 2,
+          crossAxisSpacing: 10,
+          mainAxisSpacing: 10,
+          childAspectRatio: 0.75,
         ),
         itemBuilder: (BuildContext context, int index) {
           return Container(
-            // Fijar un tamaño fijo para el contenedor
-            width: 160, // Ancho fijo para la celda
-            height: 250, // Altura fija para la celda
+            width: 160,
+            height: 250,
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(10),
