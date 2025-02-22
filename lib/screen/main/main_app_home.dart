@@ -24,7 +24,7 @@ class MainAppHome extends StatelessWidget {
                   MaterialPageRoute(builder: (context) => const HomeSceen()));
             },
             disabledElevation: 0,
-            backgroundColor: AppColor.color648286,
+            backgroundColor: AppColor.color004CFF,
             elevation: 6.0,
             shape: const CircleBorder(),
             child: Icon(
@@ -36,7 +36,7 @@ class MainAppHome extends StatelessWidget {
             elevation: 12,
             shape: const CircularNotchedRectangle(), // Hace el recorte circular
             notchMargin: 8.0, // Margen entre el FAB y el BottomAppBar
-            color: AppColor.color648286,
+            color: AppColor.color004CFF,
             height: 70,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -47,7 +47,7 @@ class MainAppHome extends StatelessWidget {
                       size: size,
                       color: state.itemPage == 0
                           ? AppColor.colorffffff
-                          : AppColor.color0f1414,
+                          : AppColor.color202020,
                     ),
                     onPressed: () =>
                         // mainAppProvider.bottomNavigationBarChangeItem(0),
@@ -58,7 +58,7 @@ class MainAppHome extends StatelessWidget {
                       size: size,
                       color: state.itemPage == 1
                           ? AppColor.colorffffff
-                          : AppColor.color0f1414,
+                          : AppColor.color202020,
                     ),
                     onPressed: () =>
                         // mainAppProvider.bottomNavigationBarChangeItem(1),
@@ -70,7 +70,7 @@ class MainAppHome extends StatelessWidget {
                       size: size,
                       color: state.itemPage == 2
                           ? AppColor.colorffffff
-                          : AppColor.color0f1414,
+                          : AppColor.color202020,
                     ),
                     onPressed: () =>
                         // mainAppProvider.bottomNavigationBarChangeItem(2),
@@ -81,7 +81,7 @@ class MainAppHome extends StatelessWidget {
                       size: size,
                       color: state.itemPage == 3
                           ? AppColor.colorffffff
-                          : AppColor.color0f1414,
+                          : AppColor.color202020,
                     ),
                     onPressed: () =>
                         // mainAppProvider.bottomNavigationBarChangeItem(3),

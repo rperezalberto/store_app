@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:store_app/bloc/home/home_bloc.dart';
 import 'package:store_app/bloc/main_app/main_app_bloc.dart';
 import 'package:store_app/screen/login/login_sreen.dart';
 import 'package:store_app/screen/main/main_app_home.dart';
@@ -9,6 +10,7 @@ void main() => runApp(
       MultiBlocProvider(
         providers: [
           BlocProvider(create: (_) => MainAppBloc()),
+          BlocProvider(create: (_) => HomeBloc()),
         ],
         child: const MyApp(),
       ),

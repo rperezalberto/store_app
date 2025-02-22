@@ -95,7 +95,7 @@ class LoginTextField extends StatelessWidget {
               padding: const EdgeInsets.only(top: 10),
               child: Text(
                 "Forgot Password",
-                style: TextStyle(color: AppColor.color648286),
+                style: TextStyle(color: AppColor.color004CFF),
               ),
             ),
           ),

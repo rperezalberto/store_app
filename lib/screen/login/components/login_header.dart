@@ -32,7 +32,7 @@ class LoginHeader extends StatelessWidget {
           subLabel,
           textAlign: TextAlign.center,
           style: TextStyle(
-            color: AppColor.color575759,
+            color: AppColor.color202020,
             fontSize: 16,
             fontWeight: FontWeight.w500,
           ),

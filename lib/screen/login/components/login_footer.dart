@@ -27,7 +27,7 @@ class LoginFooter extends StatelessWidget {
           onTap: onTap,
           child: Text(
             labelLink,
-            style: TextStyle(color: AppColor.color648286),
+            style: TextStyle(color: AppColor.color004CFF),
           ),
         ),
       ],

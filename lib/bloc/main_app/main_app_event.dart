@@ -8,7 +8,6 @@ sealed class MainAppEvent extends Equatable {
   List<Object> get props => [];
 }
 
-// Evento para cambiar de página
 final class ChangePageEvent extends MainAppEvent {
   final int newPage;
 

@@ -13,7 +13,7 @@ class LoginWithGoogle extends StatelessWidget {
       height: 50,
       child: OutlinedButton(
         style: ButtonStyle(
-          backgroundColor: WidgetStateProperty.all(AppColor.color161b1b),
+          backgroundColor: WidgetStateProperty.all(AppColor.color004CFF),
         ),
         onPressed: () {
           log("Login with Google");
