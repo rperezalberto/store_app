@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:store_app/bloc/add/add_article_bloc.dart';
 import 'package:store_app/theme/color_app.dart';
 
 class ShowSelectImage {
   static void imageModal(BuildContext context, int typeButon) {
+    final imageBloc = BlocProvider.of<AddArcticleBloc>(context, listen: false);
     showModalBottomSheet(
       context: context,
       builder: (BuildContext context) {
@@ -41,14 +44,18 @@ class ShowSelectImage {
                 const Divider(),
                 CustomButton(
                   text: 'Cámara',
-                  onTap: () {},
-                  // onTap: () => addProvider.pickImage(1, typeButon),
+                  onTap: () {
+                    imageBloc
+                        .add(PickImageEvent(imageOption: 1, typeButton: 1));
+                  },
                 ),
                 const SizedBox(height: 10),
                 CustomButton(
                   text: 'Galeria',
-                  onTap: () {},
-                  // onTap: () => addProvider.pickImage(2, typeButon),
+                  onTap: () {
+                    imageBloc
+                        .add(PickImageEvent(imageOption: 2, typeButton: 1));
+                  },
                 )
               ],
             ),
