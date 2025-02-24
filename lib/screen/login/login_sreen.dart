@@ -7,6 +7,7 @@ import 'package:store_app/screen/login/components/login_header.dart';
 import 'package:store_app/screen/login/components/login_with.dart';
 import 'package:store_app/screen/login/components/login_with_google.dart';
 import 'package:store_app/screen/login/singup_screen.dart';
+import 'package:store_app/screen/main/main_app_home.dart';
 import 'package:store_app/theme/color_app.dart';
 
 class LoginSreen extends StatelessWidget {
@@ -35,7 +36,8 @@ class LoginSreen extends StatelessWidget {
                   labelColor: AppColor.colorffffff,
                   onTap: () {
                     // TODO Login
-                    log("Login");
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (_) => MainAppHome()));
                   },
                 ),
                 LoginWith(),

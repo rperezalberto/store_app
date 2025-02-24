@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1077218641144",
+    "project_id": "shop-prueba-189ee",
+    "storage_bucket": "shop-prueba-189ee.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1077218641144:android:e01922178c3727c855a70d",
+        "android_client_info": {
+          "package_name": "com.example.store_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBQ5rjP4MmSAL0iD6YLATC64PrvntcnnyU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -3,6 +3,7 @@ import 'dart:io';
 import 'dart:typed_data';
 
 import 'package:bloc/bloc.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:equatable/equatable.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:path/path.dart' as path;
@@ -13,6 +14,7 @@ part 'add_article_event.dart';
 
 class AddArcticleBloc extends Bloc<AddArcticleEvent, AddArcticleState> {
   final ImagePicker picker = ImagePicker();
+  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
   AddArcticleBloc()
       : super(const FormInputState(
