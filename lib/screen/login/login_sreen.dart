@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:store_app/components/custom_button_component.dart';
 import 'package:store_app/screen/login/components/login_footer.dart';

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:store_app/bloc/main_app/main_app_bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:store_app/screen/home/home_sceen.dart';
+import 'package:store_app/screen/add/add_screen.dart';
 import 'package:store_app/theme/color_app.dart';
 
 class MainAppHome extends StatelessWidget {
@@ -21,7 +21,7 @@ class MainAppHome extends StatelessWidget {
           floatingActionButton: FloatingActionButton(
             onPressed: () {
               Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const HomeSceen()));
+                  MaterialPageRoute(builder: (context) => const AddScreen()));
             },
             disabledElevation: 0,
             backgroundColor: AppColor.color004CFF,

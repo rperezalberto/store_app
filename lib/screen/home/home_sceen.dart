@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store_app/bloc/home/home_bloc.dart';
 import 'package:store_app/components/next_button_component.dart';
+import 'package:store_app/models/shop_model.dart';
 import 'package:store_app/theme/color_app.dart';
 
 class HomeSceen extends StatelessWidget {
@@ -12,26 +13,23 @@ class HomeSceen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final homeBloc = BlocProvider.of<HomeBloc>(context);
     return Scaffold(
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: SingleChildScrollView(
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
             child: Column(
               children: [
                 SearchHome(),
                 Carousel(),
                 CategoriesHome(),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Expanded(
-                        child: TopItem(images: "1.png", title: "Clothing")),
-                    Expanded(child: TopItem(images: "2.png", title: "Shoes")),
-                  ],
+                SizedBox(
+                  height: 200,
+                  child: TopItem(showMore: homeBloc.showMore),
                 ),
                 const SizedBox(height: 10),
-                CustomItem(),
+                CustomItem(shop: homeBloc.shopItem),
               ],
             ),
           ),
@@ -238,9 +236,9 @@ class CategoriesHome extends StatelessWidget {
 }
 
 class TopItem extends StatelessWidget {
-  final String images;
-  final String title;
-  const TopItem({super.key, required this.images, required this.title});
+  final List<ShopMoreView> showMore;
+
+  const TopItem({super.key, required this.showMore});
 
   @override
   Widget build(BuildContext context) {
@@ -248,83 +246,96 @@ class TopItem extends StatelessWidget {
     final size = MediaQuery.of(context).size;
     final appWidth = size.width;
 
-    return Padding(
-      padding: const EdgeInsets.all(5),
-      child: Container(
-        width: (appWidth / 2),
-        height: 220,
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(10),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withOpacity(0.2),
-              offset: Offset(4, 4),
-              blurRadius: 8,
-              spreadRadius: 2,
-            ),
-          ],
-        ),
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(
-            children: [
-              Expanded(
-                child: GridView.builder(
-                  shrinkWrap: true,
-                  physics: NeverScrollableScrollPhysics(),
-                  itemCount: 4,
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    crossAxisSpacing: 3,
-                    mainAxisSpacing: 3,
-                    childAspectRatio: 1,
-                  ),
-                  itemBuilder: (context, idx) {
-                    return Container(
-                      width: 75,
-                      height: 75,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(10),
-                        child: Image.asset("assets/images/$images"),
-                      ),
-                    );
-                  },
+    return ListView.builder(
+      scrollDirection: Axis.horizontal,
+      shrinkWrap: true,
+      itemCount: showMore.length,
+      itemBuilder: (BuildContext context, int index) {
+        return Padding(
+          padding: const EdgeInsets.all(5),
+          child: Container(
+            width: (appWidth / 2),
+            height: 220,
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(10),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.2),
+                  offset: Offset(4, 4),
+                  blurRadius: 8,
+                  spreadRadius: 2,
                 ),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              ],
+            ),
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
                 children: [
-                  Text(title, style: theme.textTheme.bodyMedium),
-                  Container(
-                    width: 38,
-                    height: 20,
-                    decoration: BoxDecoration(
-                        color: AppColor.colorDFE9FF,
-                        borderRadius: BorderRadius.circular(5)),
-                    child: Center(
-                      child: Text(
-                        "109",
-                        style:
-                            theme.textTheme.bodyMedium!.copyWith(fontSize: 12),
+                  Expanded(
+                    child: GridView.builder(
+                      shrinkWrap: true, // 🔥 También aquí
+                      physics:
+                          NeverScrollableScrollPhysics(), // 🔥 Evita el doble scroll
+                      itemCount: 4,
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 2,
+                        crossAxisSpacing: 3,
+                        mainAxisSpacing: 3,
+                        childAspectRatio: 1,
                       ),
+                      itemBuilder: (context, idx) {
+                        return Container(
+                          width: 75,
+                          height: 75,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(10),
+                            child: Image.asset(
+                                "assets/images/${showMore[index].images[idx].image}",
+                                fit: BoxFit.cover),
+                          ),
+                        );
+                      },
                     ),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(showMore[index].title,
+                          style: theme.textTheme.bodyMedium),
+                      Container(
+                        width: 38,
+                        height: 20,
+                        decoration: BoxDecoration(
+                            color: Colors.blue.shade100,
+                            borderRadius: BorderRadius.circular(5)),
+                        child: Center(
+                          child: Text(
+                            "\$${showMore[index].price}",
+                            style: theme.textTheme.bodyMedium!
+                                .copyWith(fontSize: 12),
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ],
               ),
-            ],
+            ),
           ),
-        ),
-      ),
+        );
+      },
     );
   }
 }
 
 class CustomItem extends StatelessWidget {
-  const CustomItem({super.key});
+  final List<ShopModel> shop;
+  const CustomItem({super.key, required this.shop});
 
   @override
   Widget build(BuildContext context) {
@@ -333,7 +344,7 @@ class CustomItem extends StatelessWidget {
       child: GridView.builder(
         shrinkWrap: true,
         physics: NeverScrollableScrollPhysics(),
-        itemCount: 4,
+        itemCount: shop.length,
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
           crossAxisSpacing: 10,
@@ -343,7 +354,7 @@ class CustomItem extends StatelessWidget {
         itemBuilder: (BuildContext context, int index) {
           return Container(
             width: 160,
-            height: 250,
+            height: 200,
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(10),
@@ -365,16 +376,16 @@ class CustomItem extends StatelessWidget {
                       ClipRRect(
                         borderRadius: BorderRadius.circular(10),
                         child: Image.asset(
-                          "assets/images/5.png",
-                          width: 160, // Ancho de la imagen
-                          height: 150, // Altura fija de la imagen
+                          "assets/images/${shop[index].image}",
+                          width: 160,
+                          height: 150,
                           fit: BoxFit.fill,
                         ),
                       ),
                       Padding(
                         padding: const EdgeInsets.symmetric(vertical: 5),
                         child: Text(
-                          "Lorem ipsum dolor sit amet consectetur consectetur consectetur consectetur",
+                          shop[index].description,
                           maxLines: 2,
                           overflow: TextOverflow.ellipsis,
                           style: TextStyle(
@@ -387,7 +398,7 @@ class CustomItem extends StatelessWidget {
                       Align(
                         alignment: Alignment.centerLeft,
                         child: Text(
-                          "17,00",
+                          "${shop[index].price}",
                           style: TextStyle(
                             fontSize: 17,
                             color: AppColor.color202020,

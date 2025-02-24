@@ -5,10 +5,10 @@ class AppTheme {
   static ThemeData themeApp = ThemeData(
       scaffoldBackgroundColor: AppColor.colorffffff,
       appBarTheme: AppBarTheme(
-        iconTheme: IconThemeData(
-          color: AppColor.colorffffff,
-        ),
-      ),
+          iconTheme: IconThemeData(
+            color: AppColor.color004CFF,
+          ),
+          centerTitle: true),
       textTheme: TextTheme(
         bodyLarge: TextStyle(
           fontSize: 28,
